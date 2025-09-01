@@ -241,6 +241,36 @@
             font-size: 1.3em;
         }
 
+        .footer {
+            background: linear-gradient(135deg, #1e3a8a, #dc2626);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-top: 3px solid #ffffff;
+            margin-top: 40px;
+        }
+
+        .home-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 1.1em;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2.2em;
@@ -255,6 +285,10 @@
             }
             
             .itinerary-item {
+                padding: 20px;
+            }
+
+            .footer {
                 padding: 20px;
             }
         }
@@ -284,31 +318,31 @@
 
             <div class="itinerary-item">
                 <div class="time-badge">10:00 AM</div>
-                <div class="activity-title"><span class="emoji">🏛️</span>Tour Place des Vosges</div>
+                <div class="activity-title"><span class="emoji">🏛️</span><a href="https://parisjetaime.com/eng/transport/place-des-vosges-p1907" target="_blank" style="color: #1e3a8a; text-decoration: none;">Tour Place des Vosges</a></div>
                 <div class="activity-details">Paris's oldest planned square - stunning 17th-century architecture</div>
             </div>
 
             <div class="itinerary-item">
                 <div class="time-badge">10:45 AM</div>
-                <div class="activity-title"><span class="emoji">☕</span>Coffee at Carette</div>
-                <div class="activity-details">Classic Parisian café experience in beautiful Place des Vosges</div>
+                <div class="activity-title"><span class="emoji">☕</span><a href="https://paris-carette.fr/nos-magasins/place-des-vosges/" target="_blank" style="color: #1e3a8a; text-decoration: none;">Coffee at Carette</a></div>
+                <div class="activity-details">Classic Parisian café experience in beautiful Place des Vosges - famous hot chocolate!</div>
             </div>
 
             <div class="itinerary-item">
                 <div class="time-badge">11:30 AM</div>
-                <div class="activity-title"><span class="emoji">📚</span>Tour Maison de Victor Hugo</div>
-                <div class="activity-details">Literary history - where the famous author lived and wrote</div>
+                <div class="activity-title"><span class="emoji">📚</span><a href="https://www.maisonsvictorhugo.paris.fr/en" target="_blank" style="color: #1e3a8a; text-decoration: none;">Tour Maison de Victor Hugo</a></div>
+                <div class="activity-details">Literary history - where the famous author lived and wrote Les Misérables (FREE admission!)</div>
             </div>
 
             <div class="shopping-section">
                 <h3>🛍️ Le Marais Shopping</h3>
                 <div class="shop-item">
-                    <div class="shop-name">French Trotters</div>
-                    <div class="shop-description">Curated women's clothing boutique with French and international designers</div>
+                    <div class="shop-name"><a href="https://www.frenchtrotters.fr/en/" target="_blank" style="color: #1e3a8a; text-decoration: none;">French Trotters</a></div>
+                    <div class="shop-description">Curated lifestyle boutique with French and international designers - 128 rue Vieille du Temple</div>
                 </div>
                 <div class="shop-item">
-                    <div class="shop-name">Merci</div>
-                    <div class="shop-description">Iconic concept store with home goods, fashion, books, and café</div>
+                    <div class="shop-name"><a href="https://merci-merci.com/en" target="_blank" style="color: #1e3a8a; text-decoration: none;">Merci</a></div>
+                    <div class="shop-description">Iconic concept store with home goods, fashion, books, and café - 111 boulevard Beaumarchais</div>
                 </div>
                 <div class="shop-item">
                     <div class="shop-name">Melodies Graphiques</div>
@@ -375,6 +409,12 @@
                 <h4>💡 Day 2 Travel Tips</h4>
                 <p>Le Marais is perfect for walking - wear comfortable shoes! The covered passages are great for rainy weather. Don't miss the details in Place des Vosges' architecture. E. Dehillerin is a chef's paradise - perfect for culinary souvenirs. Merci is huge so allow extra time for browsing!</p>
             </div>
+        </div>
+
+        <div class="footer">
+            <a href="https://sburt1.github.io/pln25/home/" class="home-button">
+                🏠 Back to Home
+            </a>
         </div>
     </div>
 </body>
