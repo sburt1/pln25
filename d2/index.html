@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris Adventure - Day 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #ffffff 50%, #dc2626 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            border: 3px solid #1e3a8a;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #dc2626 0%, #1e3a8a 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid #ffffff;
+        }
+
+        .header::before {
+            content: '🇫🇷';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 100px;
+            opacity: 0.3;
+            transform: rotate(15deg);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .date {
+            font-size: 1.4em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .district-intro {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            border: 2px solid #dc2626;
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+        }
+
+        .district-intro h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .district-intro p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .itinerary-item {
+            background: linear-gradient(135deg, #f8faff, #eff6ff);
+            border-left: 5px solid #dc2626;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+        }
+
+        .itinerary-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
+            border-left-color: #1e3a8a;
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            border: 2px solid #1e3a8a;
+        }
+
+        .activity-title {
+            font-size: 1.2em;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .activity-details {
+            color: #374151;
+            font-style: italic;
+            margin-left: 15px;
+        }
+
+        .lunch-options {
+            background: linear-gradient(135deg, #dc2626, #1e3a8a);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 3px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .lunch-options h3 {
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            text-align: center;
+        }
+
+        .lunch-option {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #ffffff;
+        }
+
+        .lunch-option:last-child {
+            margin-bottom: 0;
+        }
+
+        .lunch-option h4 {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .lunch-option p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .shopping-section {
+            background: linear-gradient(135deg, #f8faff, #eff6ff);
+            border: 2px solid #dc2626;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .shopping-section h3 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+        .shop-item {
+            background: rgba(30, 58, 138, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid #dc2626;
+        }
+
+        .shop-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .shop-name {
+            color: #1e3a8a;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .shop-description {
+            color: #374151;
+            font-size: 0.9em;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border: 2px solid #dc2626;
+        }
+
+        .tip-box h4 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .route-highlight {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px solid #1e3a8a;
+        }
+
+        .route-highlight h3 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .date {
+                font-size: 1.1em;
+            }
+            
+            .content {
+                padding: 25px 20px;
+            }
+            
+            .itinerary-item {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Paris Adventure</h1>
+            <div class="date">Day 2 - Thursday, September 4</div>
+        </div>
+        
+        <div class="content">
+            <div class="district-intro">
+                <h3>🏛️ Exploring Le Marais & Historic Paris</h3>
+                <p>Today you'll discover the charm of Le Marais, one of Paris's most historic and trendy neighborhoods, filled with medieval streets, elegant squares, boutique shopping, and covered passages!</p>
+                <a href="https://maps.app.goo.gl/S2nuGhq9TBzHuXU57" target="_blank" style="display: inline-block; background: rgba(255, 255, 255, 0.2); color: white; text-decoration: none; padding: 12px 25px; border-radius: 25px; margin-top: 15px; font-weight: bold; border: 2px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease;">
+                    📍 Open Day 2 Interactive Map
+                </a>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">Morning</div>
+                <div class="activity-title"><span class="emoji">🚇</span>Metro to Le Marais</div>
+                <div class="activity-details">Start your historic district adventure</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">10:00 AM</div>
+                <div class="activity-title"><span class="emoji">🏛️</span>Tour Place des Vosges</div>
+                <div class="activity-details">Paris's oldest planned square - stunning 17th-century architecture</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">10:45 AM</div>
+                <div class="activity-title"><span class="emoji">☕</span>Coffee at Carette</div>
+                <div class="activity-details">Classic Parisian café experience in beautiful Place des Vosges</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">11:30 AM</div>
+                <div class="activity-title"><span class="emoji">📚</span>Tour Maison de Victor Hugo</div>
+                <div class="activity-details">Literary history - where the famous author lived and wrote</div>
+            </div>
+
+            <div class="shopping-section">
+                <h3>🛍️ Le Marais Shopping</h3>
+                <div class="shop-item">
+                    <div class="shop-name">French Trotters</div>
+                    <div class="shop-description">Curated women's clothing boutique with French and international designers</div>
+                </div>
+                <div class="shop-item">
+                    <div class="shop-name">Merci</div>
+                    <div class="shop-description">Iconic concept store with home goods, fashion, books, and café</div>
+                </div>
+                <div class="shop-item">
+                    <div class="shop-name">Melodies Graphiques</div>
+                    <div class="shop-description">Beautiful stationery and paper goods - perfect for travel journals!</div>
+                </div>
+            </div>
+
+            <div class="lunch-options">
+                <h3>🍽️ Lunch Options in Le Marais</h3>
+                <div class="lunch-option">
+                    <h4>Kubri (Primary Choice)</h4>
+                    <p>Excellent Lebanese cuisine - perfect if you're hungry during shopping</p>
+                </div>
+                <div class="lunch-option">
+                    <h4>The Louis Philippe</h4>
+                    <p>Traditional French brasserie with classic atmosphere</p>
+                </div>
+                <div class="lunch-option">
+                    <h4>Fondation Azzedine Alaïa</h4>
+                    <p>Chic dining in a fashion foundation setting</p>
+                </div>
+                <div class="lunch-option">
+                    <h4>Chez Janou</h4>
+                    <p>Authentic Provençal bistro with charming decor</p>
+                </div>
+            </div>
+
+            <div class="route-highlight">
+                <h3>🚶‍♀️ Afternoon Historic Walk</h3>
+                <p>Journey through centuries of Parisian history</p>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">3:00 PM</div>
+                <div class="activity-title"><span class="emoji">🍳</span>E. Dehillerin</div>
+                <div class="activity-details">Historic kitchenware store - a culinary paradise since 1820</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">3:30 PM</div>
+                <div class="activity-title"><span class="emoji">🏬</span>Galerie Vivienne</div>
+                <div class="activity-details">One of Paris's most beautiful covered passages - stunning glass roof!</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">4:15 PM</div>
+                <div class="activity-title"><span class="emoji">📖</span>Bibliothèque Nationale Richelieu</div>
+                <div class="activity-details">Historic national library with magnificent reading rooms</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">5:30 PM</div>
+                <div class="activity-title"><span class="emoji">🌳</span>Walk through Tuileries Gardens</div>
+                <div class="activity-details">Peaceful stroll through Paris's most famous formal garden</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">6:30 PM</div>
+                <div class="activity-title"><span class="emoji">🏨</span>Return to Hotel</div>
+                <div class="activity-details">End your historic Parisian day with a relaxing walk back</div>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Day 2 Travel Tips</h4>
+                <p>Le Marais is perfect for walking - wear comfortable shoes! The covered passages are great for rainy weather. Don't miss the details in Place des Vosges' architecture. E. Dehillerin is a chef's paradise - perfect for culinary souvenirs. Merci is huge so allow extra time for browsing!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
