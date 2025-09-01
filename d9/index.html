@@ -149,6 +149,15 @@
             margin-left: 15px;
         }
 
+        .activity-details a {
+            color: #dc2626;
+            text-decoration: underline;
+        }
+
+        .activity-details a:hover {
+            color: #1e3a8a;
+        }
+
         .monet-section {
             background: linear-gradient(135deg, #dc2626, #1e3a8a);
             color: white;
@@ -204,6 +213,15 @@
             margin-bottom: 5px;
         }
 
+        .dining-name a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .dining-name a:hover {
+            color: #f3f4f6;
+        }
+
         .dining-description {
             font-size: 0.9em;
             opacity: 0.9;
@@ -244,6 +262,16 @@
             margin-bottom: 5px;
         }
 
+        .route-location a {
+            color: #1e3a8a;
+            text-decoration: none;
+        }
+
+        .route-location a:hover {
+            text-decoration: underline;
+            color: #dc2626;
+        }
+
         .route-description {
             color: #374151;
             font-size: 0.9em;
@@ -270,6 +298,15 @@
             opacity: 0.95;
         }
 
+        .hotel-info a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .hotel-info a:hover {
+            color: #f3f4f6;
+        }
+
         .tip-box {
             background: linear-gradient(135deg, #1e3a8a, #3b82f6);
             color: white;
@@ -287,6 +324,32 @@
         .emoji {
             font-size: 1.5em;
             margin-right: 10px;
+        }
+
+        .footer-nav {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+        }
+
+        .home-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626, #1e3a8a);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            border: 3px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(220, 38, 38, 0.4);
+            background: linear-gradient(135deg, #ef4444, #3b82f6);
         }
 
         @media (max-width: 768px) {
@@ -333,15 +396,15 @@
             <div class="route-section">
                 <h3>🚗 Impressionist Route</h3>
                 <div class="route-item">
-                    <div class="route-location">Rouen Cathedral</div>
+                    <div class="route-location"><a href="https://www.cathedrale-rouen.net/site/visiter.php?lang=en" target="_blank">Rouen Cathedral</a></div>
                     <div class="route-description">Gothic masterpiece immortalized in Monet's famous cathedral series - tallest spire in France</div>
                 </div>
                 <div class="route-item">
-                    <div class="route-location">Giverny - Monet's Gardens</div>
+                    <div class="route-location"><a href="https://claudemonetgiverny.fr/en/" target="_blank">Giverny - Monet's Gardens</a></div>
                     <div class="route-description">The artist's home for 43 years - inspiration for his Water Lilies masterpieces</div>
                 </div>
                 <div class="route-item">
-                    <div class="route-location">Return to Paris CDG</div>
+                    <div class="route-location"><a href="https://www.citizenm.com/hotels/europe/paris/charles-de-gaulle-airport-hotel" target="_blank">Return to Paris CDG</a></div>
                     <div class="route-description">Check in near the airport and return your rental car</div>
                 </div>
             </div>
@@ -349,7 +412,9 @@
             <div class="itinerary-item">
                 <div class="time-badge">11:00 AM</div>
                 <div class="activity-title"><span class="emoji">⛪</span>Rouen Cathedral</div>
-                <div class="activity-details">See the Gothic cathedral that Monet painted in 30 different canvases - France's tallest spire</div>
+                <div class="activity-details">See the Gothic cathedral that Monet painted in 30 different canvases - France's tallest spire<br>
+                <a href="https://en.visiterouen.com/" target="_blank">Visit Rouen Tourism Official Site</a> | 
+                <a href="https://en.normandie-tourisme.fr/unmissable-sites/rouen/" target="_blank">Normandy Tourism</a></div>
             </div>
 
             <div class="dining-section">
@@ -372,7 +437,9 @@
             <div class="itinerary-item">
                 <div class="time-badge">2:30 PM</div>
                 <div class="activity-title"><span class="emoji">🌸</span>Maison et Jardins de Claude Monet</div>
-                <div class="activity-details">Explore the artist's home, famous yellow dining room, and the gardens that inspired his masterpieces</div>
+                <div class="activity-details">Explore the artist's home, famous yellow dining room, and the gardens that inspired his masterpieces<br>
+                <a href="https://claudemonetgiverny.fr/en/useful-information/" target="_blank">Visit Information & Tickets</a> | 
+                <a href="https://www.giverny.org/gardens/fcm/visitgb.htm" target="_blank">Giverny Gardens Guide</a></div>
             </div>
 
             <div class="dining-section">
@@ -393,14 +460,15 @@
 
             <div class="hotel-info">
                 <h3>🏨 Tonight's Airport Hotel</h3>
-                <p><strong>citizenM Paris Charles de Gaulle</strong><br>
+                <p><strong><a href="https://www.citizenm.com/hotels/europe/paris/charles-de-gaulle-airport-hotel" target="_blank">citizenM Paris Charles de Gaulle</a></strong><br>
                 Modern airport hotel with stylish design - perfect for your departure tomorrow</p>
             </div>
 
             <div class="itinerary-item">
                 <div class="time-badge">5:30 PM</div>
                 <div class="activity-title"><span class="emoji">🏨</span>Check In to citizenM Paris CDG</div>
-                <div class="activity-details">Contemporary design hotel near the airport for your final night</div>
+                <div class="activity-details">Contemporary design hotel near the airport for your final night<br>
+                <a href="https://www.citizenm.com/hotels/europe/paris/charles-de-gaulle-airport-hotel" target="_blank">Hotel Information & Booking</a></div>
             </div>
 
             <div class="itinerary-item">
@@ -428,6 +496,12 @@
             <div class="tip-box">
                 <h4>💡 Day 9 Journey Tips</h4>
                 <p>This is your final day in France - savor every moment! Rouen Cathedral is stunning - the same views Monet painted. At Giverny, arrive early (opens 9:30 AM) to avoid crowds. The gardens are seasonal but always beautiful. Restaurant Les Nymphéas offers the most authentic Monet-era dining experience. Allow extra time for car return at CDG. Consider buying art books or prints as perfect French souvenirs!</p>
+            </div>
+
+            <div class="footer-nav">
+                <a href="#" onclick="window.history.back(); return false;" class="home-button">
+                    🏠 Return to Tour Home
+                </a>
             </div>
         </div>
     </div>
