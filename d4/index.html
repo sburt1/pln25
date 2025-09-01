@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris Adventure - Day 4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #ffffff 50%, #dc2626 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            border: 3px solid #1e3a8a;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #dc2626 0%, #1e3a8a 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid #ffffff;
+        }
+
+        .header::before {
+            content: '🇫🇷';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 100px;
+            opacity: 0.3;
+            transform: rotate(15deg);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .date {
+            font-size: 1.4em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .district-intro {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            border: 2px solid #dc2626;
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+        }
+
+        .district-intro h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .district-intro p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .map-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            margin-top: 15px;
+            font-weight: bold;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .map-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .itinerary-item {
+            background: linear-gradient(135deg, #f8faff, #eff6ff);
+            border-left: 5px solid #dc2626;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+        }
+
+        .itinerary-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
+            border-left-color: #1e3a8a;
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            border: 2px solid #1e3a8a;
+        }
+
+        .activity-title {
+            font-size: 1.2em;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .activity-details {
+            color: #374151;
+            font-style: italic;
+            margin-left: 15px;
+        }
+
+        .rental-info {
+            background: linear-gradient(135deg, #f8faff, #eff6ff);
+            border: 2px solid #dc2626;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .rental-info h3 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+        .confirmation {
+            background: rgba(30, 58, 138, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #dc2626;
+            text-align: center;
+        }
+
+        .confirmation-number {
+            color: #1e3a8a;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .confirmation-details {
+            color: #374151;
+            font-size: 0.95em;
+        }
+
+        .chateau-highlight {
+            background: linear-gradient(135deg, #dc2626, #1e3a8a);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            border: 3px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .chateau-highlight h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .chateau-highlight p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .drive-route {
+            background: linear-gradient(135deg, #f8faff, #eff6ff);
+            border: 2px solid #1e3a8a;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .drive-route h3 {
+            color: #dc2626;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+        .route-item {
+            background: rgba(220, 38, 38, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid #1e3a8a;
+        }
+
+        .route-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .route-location {
+            color: #1e3a8a;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .route-description {
+            color: #374151;
+            font-size: 0.9em;
+        }
+
+        .hotel-info {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px solid #dc2626;
+        }
+
+        .hotel-info h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .hotel-info p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border: 2px solid #dc2626;
+        }
+
+        .tip-box h4 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .date {
+                font-size: 1.1em;
+            }
+            
+            .content {
+                padding: 25px 20px;
+            }
+            
+            .itinerary-item {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Paris Adventure</h1>
+            <div class="date">Day 4 - Saturday, September 6</div>
+        </div>
+        
+        <div class="content">
+            <div class="district-intro">
+                <h3>🚗 Château Adventure & Countryside Drive</h3>
+                <p>Today you leave Paris for the French countryside! Explore magnificent châteaux, drive through historic artist villages, and discover the royal splendor of Fontainebleau.</p>
+                <a href="https://maps.app.goo.gl/ygv8zyLmdi7e57CB9" target="_blank" class="map-link">
+                    📍 Open Day 4 Driving Route
+                </a>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">11:00 AM</div>
+                <div class="activity-title"><span class="emoji">🧳</span>Check Out of Hotel Regency Etoile</div>
+                <div class="activity-details">Pack up and prepare for your countryside adventure</div>
+            </div>
+
+            <div class="rental-info">
+                <h3>🚗 Car Rental Details</h3>
+                <div class="confirmation">
+                    <div class="confirmation-number">Confirmation: L26204558C9</div>
+                    <div class="confirmation-details">Hertz Porte Maillot - Pickup at Noon</div>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">12:00 PM</div>
+                <div class="activity-title"><span class="emoji">🚗</span>Pickup Rental Car at Hertz Porte Maillot</div>
+                <div class="activity-details">Begin your French countryside road trip</div>
+            </div>
+
+            <div class="chateau-highlight">
+                <h3>🏰 Château de Vaux-le-Vicomte</h3>
+                <p>The inspiration for Versailles! This magnificent 17th-century château features stunning baroque architecture, formal French gardens, and lavish interiors that influenced Louis XIV's grand palace.</p>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">1:30 PM</div>
+                <div class="activity-title"><span class="emoji">🏰</span>Drive to Château de Vaux-le-Vicomte</div>
+                <div class="activity-details">Explore the château that inspired Versailles - magnificent gardens and interiors</div>
+            </div>
+
+            <div class="drive-route">
+                <h3>🎨 Scenic Drive Through Artist Country</h3>
+                <div class="route-item">
+                    <div class="route-location">Town of Barbizon</div>
+                    <div class="route-description">Historic village where the Barbizon School painters worked - peaceful countryside atmosphere</div>
+                </div>
+                <div class="route-item">
+                    <div class="route-location">Lunch at L'Ermitage (if open)</div>
+                    <div class="route-description">Charming restaurant in the heart of this artist village</div>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">4:30 PM</div>
+                <div class="activity-title"><span class="emoji">🚗</span>Drive Through Barbizon</div>
+                <div class="activity-details">Experience the village where famous landscape painters lived and worked</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">5:30 PM</div>
+                <div class="activity-title"><span class="emoji">🍽️</span>Lunch at L'Ermitage</div>
+                <div class="activity-details">Traditional French cuisine in historic artist village (if open)</div>
+            </div>
+
+            <div class="hotel-info">
+                <h3>🏨 Tonight's Accommodation</h3>
+                <p><strong>Aigle Noir Fontainebleau</strong><br>
+                Elegant hotel in the heart of Fontainebleau, perfectly positioned near the royal palace</p>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">6:30 PM</div>
+                <div class="activity-title"><span class="emoji">🏰</span>Drive to Fontainebleau</div>
+                <div class="activity-details">Arrive in the royal town of Fontainebleau</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">7:00 PM</div>
+                <div class="activity-title"><span class="emoji">🏨</span>Check In to Aigle Noir Fontainebleau</div>
+                <div class="activity-details">Relax and enjoy your elegant countryside hotel</div>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Day 4 Travel Tips</h4>
+                <p>Vaux-le-Vicomte is less crowded than Versailles but equally spectacular! The gardens are perfect for photos. Barbizon is tiny but charming - perfect for a leisurely drive. Check L'Ermitage hours before arriving. Fontainebleau is a lovely town to explore on foot in the evening.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
