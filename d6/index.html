@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loire Valley Adventure - Day 6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #ffffff 50%, #dc2626 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            border: 3px solid #1e3a8a;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #dc2626 0%, #1e3a8a 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid #ffffff;
+        }
+
+        .header::before {
+            content: '🇫🇷';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 100px;
+            opacity: 0.3;
+            transform: rotate(15deg);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .date {
+            font-size: 1.4em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .district-intro {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            border: 2px solid #dc2626;
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+        }
+
+        .district-intro h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .district-intro p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .itinerary-item {
+            background: linear-gradient(135deg, #f8faff, #eff6ff);
+            border-left: 5px solid #dc2626;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+        }
+
+        .itinerary-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
+            border-left-color: #1e3a8a;
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            border: 2px solid #1e3a8a;
+        }
+
+        .activity-title {
+            font-size: 1.2em;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .activity-details {
+            color: #374151;
+            font-style: italic;
+            margin-left: 15px;
+        }
+
+        .chateau-highlight {
+            background: linear-gradient(135deg, #dc2626, #1e3a8a);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            border: 3px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .chateau-highlight h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .chateau-highlight p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .activities-section {
+            background: linear-gradient(135deg, #f8faff, #eff6ff);
+            border: 2px solid #1e3a8a;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .activities-section h3 {
+            color: #dc2626;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .activity-card {
+            background: rgba(30, 58, 138, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #dc2626;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.15);
+        }
+
+        .activity-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .activity-name {
+            color: #1e3a8a;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .activity-description {
+            color: #374151;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .relaxation-note {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px solid #dc2626;
+        }
+
+        .relaxation-note h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .relaxation-note p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border: 2px solid #dc2626;
+        }
+
+        .tip-box h4 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .date {
+                font-size: 1.1em;
+            }
+            
+            .content {
+                padding: 25px 20px;
+            }
+            
+            .itinerary-item {
+                padding: 20px;
+            }
+
+            .activity-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Loire Valley Adventure</h1>
+            <div class="date">Day 6 - Monday, September 8</div>
+        </div>
+        
+        <div class="content">
+            <div class="district-intro">
+                <h3>🏰 Chenonceaux & Leisure Day</h3>
+                <p>A perfect balance of culture and relaxation! Explore the enchanting "Ladies' Château" built across the River Cher, then choose your perfect afternoon activity in the beautiful Loire Valley countryside.</p>
+            </div>
+
+            <div class="chateau-highlight">
+                <h3>🏰 Château de Chenonceaux</h3>
+                <p>The "Ladies' Château" - Built across the River Cher with stunning arched bridge galleries. Famous for its elegant Renaissance architecture and the influential women who shaped its history, including Diane de Poitiers and Catherine de' Medici.</p>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">9:30 AM</div>
+                <div class="activity-title"><span class="emoji">🏰</span>Tour Château de Chenonceaux</div>
+                <div class="activity-details">Walk just minutes from your hotel to this architectural masterpiece spanning the river</div>
+            </div>
+
+            <div class="activities-section">
+                <h3>🌿 Choose Your Perfect Afternoon</h3>
+                <div class="activity-grid">
+                    <div class="activity-card">
+                        <div class="activity-icon">🚴‍♀️</div>
+                        <div class="activity-name">Cycling</div>
+                        <div class="activity-description">Explore Loire Valley vineyard paths and charming villages on two wheels</div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon">🚶‍♀️</div>
+                        <div class="activity-name">Walking</div>
+                        <div class="activity-description">Peaceful nature trails along the River Cher and through countryside</div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon">🛶</div>
+                        <div class="activity-name">Kayaking</div>
+                        <div class="activity-description">Paddle the River Cher and see Chenonceaux from a unique water perspective</div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon">🧘‍♀️</div>
+                        <div class="activity-name">Spa Day</div>
+                        <div class="activity-description">Ultimate relaxation and rejuvenation at a local spa retreat</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">12:00 PM</div>
+                <div class="activity-title"><span class="emoji">🍽️</span>Lunch Options</div>
+                <div class="activity-details">
+                    <strong>L'Orangerie</strong> - Elegant restaurant at Château de Chenonceaux with château views<br>
+                    <strong>Auberge du Bon Laboureur</strong> - Gourmet restaurant at your hotel with garden terrace<br>
+                    <strong>La Roseraie</strong> - Charming local restaurant with fireplace and Loire Valley wines
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">2:00 PM</div>
+                <div class="activity-title"><span class="emoji">🌿</span>Afternoon Activity of Choice</div>
+                <div class="activity-details">Your personalized Loire Valley experience based on your mood and weather</div>
+            </div>
+
+            <div class="relaxation-note">
+                <h3>✨ A Day to Breathe</h3>
+                <p>After your grand château tour yesterday, today is designed for you to unwind and savor the peaceful Loire Valley atmosphere. Choose the activity that speaks to your soul!</p>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">4:00 PM</div>
+                <div class="activity-title"><span class="emoji">🛒</span>Grocery Stop (Optional)</div>
+                <div class="activity-details">Super U in nearby Chissay-en-Touraine (10 minutes drive) for snacks, wine, or picnic supplies</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">6:00 PM</div>
+                <div class="activity-title"><span class="emoji">🍷</span>Dinner Options</div>
+                <div class="activity-details">
+                    <strong>Auberge du Bon Laboureur</strong> - Your hotel's acclaimed gourmet restaurant<br>
+                    <strong>La Roseraie</strong> - Historic inn with seasonal Loire Valley cuisine<br>
+                    <strong>Château wine tasting</strong> - Historic wine cellar experience at Chenonceaux
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Day 6 Travel Tips</h4>
+                <p>Chenonceaux is especially beautiful in morning light! L'Orangerie at the château offers excellent dining with views. For groceries, Super U in Chissay-en-Touraine (10 min drive) has everything you need. Your hotel's restaurant is highly rated for gourmet Loire Valley cuisine. The château's wine cellar offers tastings in 16th-century vaulted cellars. Weather will help decide your afternoon activity choice!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
