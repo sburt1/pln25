@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris Adventure - Day 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #ffffff 50%, #dc2626 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            border: 3px solid #1e3a8a;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #dc2626 0%, #1e3a8a 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid #ffffff;
+        }
+
+        .header::before {
+            content: '🇫🇷';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 100px;
+            opacity: 0.3;
+            transform: rotate(15deg);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .date {
+            font-size: 1.4em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .district-intro {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            border: 2px solid #dc2626;
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+        }
+
+        .district-intro h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .district-intro p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .map-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            margin-top: 15px;
+            font-weight: bold;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .map-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .itinerary-item {
+            background: linear-gradient(135deg, #f8faff, #eff6ff);
+            border-left: 5px solid #dc2626;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+        }
+
+        .itinerary-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
+            border-left-color: #1e3a8a;
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            border: 2px solid #1e3a8a;
+        }
+
+        .activity-title {
+            font-size: 1.2em;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .activity-details {
+            color: #374151;
+            font-style: italic;
+            margin-left: 15px;
+        }
+
+        .shopping-section {
+            background: linear-gradient(135deg, #f8faff, #eff6ff);
+            border: 2px solid #dc2626;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .shopping-section h3 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+        .shop-item {
+            background: rgba(30, 58, 138, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid #dc2626;
+        }
+
+        .shop-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .shop-name {
+            color: #1e3a8a;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .shop-description {
+            color: #374151;
+            font-size: 0.9em;
+        }
+
+        .museum-highlight {
+            background: linear-gradient(135deg, #dc2626, #1e3a8a);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            border: 3px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .museum-highlight h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .museum-highlight p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border: 2px solid #dc2626;
+        }
+
+        .tip-box h4 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .date {
+                font-size: 1.1em;
+            }
+            
+            .content {
+                padding: 25px 20px;
+            }
+            
+            .itinerary-item {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Paris Adventure</h1>
+            <div class="date">Day 3 - Friday, September 5</div>
+        </div>
+        
+        <div class="content">
+            <div class="district-intro">
+                <h3>🌳 Left Bank & Latin Quarter</h3>
+                <p>Today you'll explore the intellectual heart of Paris - from Luxembourg Gardens to the Panthéon, with chic boutique shopping and world-class art at the Musée de l'Orangerie!</p>
+                <a href="https://maps.app.goo.gl/A32yNJ8f6CSfmTGk8" target="_blank" class="map-link">
+                    📍 Open Day 3 Interactive Map
+                </a>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">Morning</div>
+                <div class="activity-title"><span class="emoji">🚇</span>Metro to Jardin du Luxembourg</div>
+                <div class="activity-details">Start your Left Bank adventure in Paris's most beloved garden</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">10:00 AM</div>
+                <div class="activity-title"><span class="emoji">🥐</span>Snack at Ladurée Café</div>
+                <div class="activity-details">Famous macarons and pastries near Luxembourg Garden - perfect for people watching</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">11:00 AM</div>
+                <div class="activity-title"><span class="emoji">⛪</span>Tour the Panthéon</div>
+                <div class="activity-details">Neoclassical mausoleum housing Voltaire, Rousseau, Marie Curie, and other French luminaries</div>
+            </div>
+
+            <div class="shopping-section">
+                <h3>🛍️ Left Bank Boutique Shopping</h3>
+                <div class="shop-item">
+                    <div class="shop-name">La Maison d'Isabelle</div>
+                    <div class="shop-description">Chic boutique with curated fashion and accessories</div>
+                </div>
+                <div class="shop-item">
+                    <div class="shop-name">Tapestries of Bucherie</div>
+                    <div class="shop-description">Beautiful textiles and home décor in the literary quarter</div>
+                </div>
+                <div class="shop-item">
+                    <div class="shop-name">Sabre</div>
+                    <div class="shop-description">Elegant cutlery and tableware - perfect French sophistication</div>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">1:00 PM</div>
+                <div class="activity-title"><span class="emoji">🍽️</span>Lunch at Ralphs</div>
+                <div class="activity-details">Stylish Left Bank dining experience</div>
+            </div>
+
+            <div class="shopping-section">
+                <h3>🛍️ Afternoon Shopping Continue</h3>
+                <div class="shop-item">
+                    <div class="shop-name">Max Mara of Rue du Four</div>
+                    <div class="shop-description">Italian luxury fashion house - elegant clothing and accessories</div>
+                </div>
+                <div class="shop-item">
+                    <div class="shop-name">Officine Universal Buly</div>
+                    <div class="shop-description">Beautiful vintage-style beauty products and combs - French apothecary charm</div>
+                </div>
+                <div class="shop-item">
+                    <div class="shop-name">Magazine Sennelier</div>
+                    <div class="shop-description">Historic art supply store along the Seine - where Picasso and Cézanne shopped!</div>
+                </div>
+            </div>
+
+            <div class="museum-highlight">
+                <h3>🎨 Musée de l'Orangerie</h3>
+                <p>Home to Monet's magnificent Water Lilies series - an immersive impressionist experience in specially designed oval rooms</p>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">4:00 PM</div>
+                <div class="activity-title"><span class="emoji">🌊</span>Cross the River to Musée de l'Orangerie</div>
+                <div class="activity-details">Experience Monet's Water Lilies in their purpose-built rooms</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">5:30 PM</div>
+                <div class="activity-title"><span class="emoji">🚶‍♀️</span>Walk Back to Hotel</div>
+                <div class="activity-details">Evening stroll through the heart of Paris after a perfect Left Bank day</div>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Day 3 Travel Tips</h4>
+                <p>The Left Bank is perfect for leisurely strolling - allow extra time for browsing! Sennelier is a must for art lovers. The Orangerie is small but spectacular - perfect for late afternoon. Luxembourg Gardens are ideal for a peaceful break between activities.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
