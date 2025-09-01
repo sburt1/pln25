@@ -149,6 +149,15 @@
             margin-left: 15px;
         }
 
+        .activity-details a {
+            color: #dc2626;
+            text-decoration: underline;
+        }
+
+        .activity-details a:hover {
+            color: #1e3a8a;
+        }
+
         .historical-section {
             background: linear-gradient(135deg, #dc2626, #1e3a8a);
             color: white;
@@ -204,6 +213,16 @@
             margin-bottom: 5px;
         }
 
+        .site-name a {
+            color: #1e3a8a;
+            text-decoration: none;
+        }
+
+        .site-name a:hover {
+            text-decoration: underline;
+            color: #dc2626;
+        }
+
         .site-description {
             color: #374151;
             font-size: 0.9em;
@@ -243,6 +262,16 @@
             margin-bottom: 5px;
         }
 
+        .dining-name a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .dining-name a:hover {
+            color: #f3f4f6;
+            text-decoration: underline;
+        }
+
         .dining-description {
             font-size: 0.9em;
             opacity: 0.9;
@@ -266,6 +295,32 @@
         .emoji {
             font-size: 1.5em;
             margin-right: 10px;
+        }
+
+        .footer-nav {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+        }
+
+        .home-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626, #1e3a8a);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            border: 3px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(220, 38, 38, 0.4);
+            background: linear-gradient(135deg, #ef4444, #3b82f6);
         }
 
         @media (max-width: 768px) {
@@ -311,25 +366,27 @@
             <div class="itinerary-item">
                 <div class="time-badge">9:00 AM</div>
                 <div class="activity-title"><span class="emoji">🏖️</span>Tour Omaha Beach</div>
-                <div class="activity-details">"Bloody Omaha" - the most heavily fortified and costly D-Day landing site</div>
+                <div class="activity-details">"Bloody Omaha" - the most heavily fortified and costly D-Day landing site<br>
+                <a href="https://www.abmc.gov/normandy" target="_blank">Visit Normandy American Cemetery & Memorial</a> | 
+                <a href="https://www.musee-memorial-omaha.fr/en/home/" target="_blank">Omaha Beach Memorial Museum</a></div>
             </div>
 
             <div class="dday-sites">
                 <h3>🇺🇸 D-Day Landing Sites</h3>
                 <div class="site-item">
-                    <div class="site-name">Omaha Beach</div>
+                    <div class="site-name"><a href="https://en.normandie-tourisme.fr/discover/d-day-and-the-battle-of-normandy/dday-landing-beaches/omaha-beach/" target="_blank">Omaha Beach</a></div>
                     <div class="site-description">The most challenging D-Day landing - heavily fortified German positions caused massive casualties</div>
                 </div>
                 <div class="site-item">
-                    <div class="site-name">Pointe du Hoc</div>
+                    <div class="site-name"><a href="https://www.abmc.gov/cemeteries-memorials/about-pointe-du-hoc-ranger-monument/" target="_blank">Pointe du Hoc</a></div>
                     <div class="site-description">Dramatic cliffs scaled by US Rangers to capture German gun positions - bomb craters still visible</div>
                 </div>
                 <div class="site-item">
-                    <div class="site-name">Dick Winters Memorial</div>
+                    <div class="site-name"><a href="https://www.normandywarguide.com/place/leadership-monument" target="_blank">Dick Winters Memorial</a></div>
                     <div class="site-description">Tribute to the Band of Brothers commander who led the assault on German artillery</div>
                 </div>
                 <div class="site-item">
-                    <div class="site-name">Sainte-Mère-Église Airborne Museum</div>
+                    <div class="site-name"><a href="https://airborne-museum.org/en/homepage/" target="_blank">Sainte-Mère-Église Airborne Museum</a></div>
                     <div class="site-description">First town liberated on D-Day - museum honors the 82nd and 101st Airborne Divisions</div>
                 </div>
             </div>
@@ -337,7 +394,7 @@
             <div class="dining-section">
                 <h3>🍽️ Lunch Options at D-Day Sites</h3>
                 <div class="dining-option">
-                    <div class="dining-name">Restaurant L'Omaha</div>
+                    <div class="dining-name"><a href="https://www.omaha-restaurant.fr/english/" target="_blank">Restaurant L'Omaha</a></div>
                     <div class="dining-description">Perfectly located at center of Omaha Beach with sea views - fresh seafood and Norman specialties</div>
                 </div>
                 <div class="dining-option">
@@ -353,7 +410,8 @@
             <div class="itinerary-item">
                 <div class="time-badge">11:00 AM</div>
                 <div class="activity-title"><span class="emoji">⛰️</span>Visit Pointe du Hoc</div>
-                <div class="activity-details">Dramatic clifftop battlefield where US Rangers scaled 100-foot cliffs under fire</div>
+                <div class="activity-details">Dramatic clifftop battlefield where US Rangers scaled 100-foot cliffs under fire<br>
+                <a href="https://en.normandie-tourisme.fr/museums-and-heritage-sites/pointe-du-hoc-site/" target="_blank">Visit Pointe du Hoc Site Information</a></div>
             </div>
 
             <div class="itinerary-item">
@@ -377,7 +435,9 @@
             <div class="itinerary-item">
                 <div class="time-badge">4:30 PM</div>
                 <div class="activity-title"><span class="emoji">🏛️</span>Airborne Museum</div>
-                <div class="activity-details">Comprehensive tribute to the 82nd and 101st Airborne Divisions' crucial D-Day role</div>
+                <div class="activity-details">Comprehensive tribute to the 82nd and 101st Airborne Divisions' crucial D-Day role<br>
+                <a href="https://airborne-museum.org/en/homepage/" target="_blank">Visit Airborne Museum Official Site</a> | 
+                <a href="https://en.normandie-tourisme.fr/museums-and-heritage-sites/airborne-museum/" target="_blank">Tourism Information</a></div>
             </div>
 
             <div class="dining-section">
@@ -405,6 +465,12 @@
             <div class="tip-box">
                 <h4>💡 Day 8 Memorial Tips</h4>
                 <p>This is an emotionally powerful day. Allow time for quiet reflection at each site. Restaurant L'Omaha offers the most historically appropriate dining experience. Pointe du Hoc's bomb craters and bunkers are still visible. The Airborne Museum is excellent for understanding the full scope of the operation. Weather can change quickly along the coast - bring layers!</p>
+            </div>
+
+            <div class="footer-nav">
+                <a href="#" onclick="window.history.back(); return false;" class="home-button">
+                    🏠 Return to Tour Home
+                </a>
             </div>
         </div>
     </div>
