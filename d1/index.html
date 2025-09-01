@@ -182,6 +182,36 @@
             margin-right: 10px;
         }
 
+        .footer {
+            background: linear-gradient(135deg, #1e3a8a, #dc2626);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-top: 3px solid #ffffff;
+            margin-top: 40px;
+        }
+
+        .home-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 1.1em;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2.2em;
@@ -196,6 +226,10 @@
             }
             
             .itinerary-item {
+                padding: 20px;
+            }
+
+            .footer {
                 padding: 20px;
             }
         }
@@ -273,8 +307,8 @@
 
             <div class="itinerary-item">
                 <div class="time-badge">6:30 PM</div>
-                <div class="activity-title"><span class="emoji">👗</span>Galerie Dior</div>
-                <div class="activity-details">Fashion and luxury in the heart of Paris</div>
+                <div class="activity-title"><span class="emoji">👗</span><a href="https://www.galeriedior.com/en" target="_blank" style="color: #1e3a8a; text-decoration: none;">Galerie Dior</a></div>
+                <div class="activity-details">Fashion and luxury in the heart of Paris - museum showcasing Christian Dior's legacy</div>
             </div>
 
             <div class="itinerary-item">
@@ -291,8 +325,8 @@
 
             <div class="itinerary-item">
                 <div class="time-badge">9:30 PM</div>
-                <div class="activity-title"><span class="emoji">🍽️</span>Dinner at L'Arc Café</div>
-                <div class="activity-details">Convenient location near your hotel</div>
+                <div class="activity-title"><span class="emoji">🍽️</span><a href="https://www.yelp.com/biz/l-arc-paris-4" target="_blank" style="color: #1e3a8a; text-decoration: none;">Dinner at L'Arc Café</a></div>
+                <div class="activity-details">Traditional Parisian brasserie just steps from Arc de Triomphe - 27 avenue Carnot</div>
             </div>
 
             <div class="itinerary-item">
@@ -305,6 +339,12 @@
                 <h4>💡 Day 1 Travel Tips</h4>
                 <p>Remember to stay hydrated, wear comfortable walking shoes, and don't forget to take photos of your first day in the City of Light! The nap is crucial for beating jet lag.</p>
             </div>
+        </div>
+
+        <div class="footer">
+            <a href="https://sburt1.github.io/pln25/home/" class="home-button">
+                🏠 Back to Home
+            </a>
         </div>
     </div>
 </body>
