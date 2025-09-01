@@ -359,6 +359,36 @@
             margin-right: 10px;
         }
 
+        .footer {
+            background: linear-gradient(135deg, #1e3a8a, #dc2626);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-top: 3px solid #ffffff;
+            margin-top: 40px;
+        }
+
+        .home-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 1.1em;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2.2em;
@@ -373,6 +403,10 @@
             }
             
             .itinerary-item {
+                padding: 20px;
+            }
+
+            .footer {
                 padding: 20px;
             }
         }
@@ -471,6 +505,12 @@
                 <h4>💡 Day 4 Travel Tips</h4>
                 <p><a href="https://vaux-le-vicomte.com/en/" target="_blank">Vaux-le-Vicomte</a> is less crowded than Versailles but equally spectacular! The gardens are perfect for photos. <a href="https://www.fontainebleau-tourisme.com/en/barbizon-2/" target="_blank">Barbizon</a> is tiny but charming - perfect for a leisurely drive. Check <a href="https://www.lermitagesaintantoine.com/" target="_blank">L'Ermitage</a> hours before arriving (closed Wed/Thu). <a href="https://www.fontainebleau-tourisme.com/en/" target="_blank">Fontainebleau</a> is a lovely town to explore on foot in the evening.</p>
             </div>
+        </div>
+
+        <div class="footer">
+            <a href="https://sburt1.github.io/pln25/home/" class="home-button">
+                🏠 Back to Home
+            </a>
         </div>
     </div>
 </body>
