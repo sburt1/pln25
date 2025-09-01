@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>France Adventure - Day 7</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #ffffff 50%, #dc2626 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            border: 3px solid #1e3a8a;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #dc2626 0%, #1e3a8a 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid #ffffff;
+        }
+
+        .header::before {
+            content: '🇫🇷';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 100px;
+            opacity: 0.3;
+            transform: rotate(15deg);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .date {
+            font-size: 1.4em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .district-intro {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            border: 2px solid #dc2626;
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+        }
+
+        .district-intro h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .district-intro p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .map-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            margin-top: 15px;
+            font-weight: bold;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .map-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .itinerary-item {
+            background: linear-gradient(135deg, #f8faff, #eff6ff);
+            border-left: 5px solid #dc2626;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+        }
+
+        .itinerary-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
+            border-left-color: #1e3a8a;
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            border: 2px solid #1e3a8a;
+        }
+
+        .activity-title {
+            font-size: 1.2em;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .activity-details {
+            color: #374151;
+            font-style: italic;
+            margin-left: 15px;
+        }
+
+        .route-section {
+            background: linear-gradient(135deg, #f8faff, #eff6ff);
+            border: 2px solid #1e3a8a;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .route-section h3 {
+            color: #dc2626;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+        .route-item {
+            background: rgba(220, 38, 38, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid #1e3a8a;
+        }
+
+        .route-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .route-location {
+            color: #1e3a8a;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .route-description {
+            color: #374151;
+            font-size: 0.9em;
+        }
+
+        .dining-section {
+            background: linear-gradient(135deg, #dc2626, #1e3a8a);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 3px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .dining-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            text-align: center;
+        }
+
+        .dining-option {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #ffffff;
+        }
+
+        .dining-option:last-child {
+            margin-bottom: 0;
+        }
+
+        .dining-name {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .dining-description {
+            font-size: 0.9em;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .hotel-info {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px solid #dc2626;
+        }
+
+        .hotel-info h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .hotel-info p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border: 2px solid #dc2626;
+        }
+
+        .tip-box h4 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .date {
+                font-size: 1.1em;
+            }
+            
+            .content {
+                padding: 25px 20px;
+            }
+            
+            .itinerary-item {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>France Adventure</h1>
+            <div class="date">Day 7 - Tuesday, September 9</div>
+        </div>
+        
+        <div class="content">
+            <div class="district-intro">
+                <h3>🚗 Loire Valley to Normandy Journey</h3>
+                <p>A scenic drive through historic French cities and cathedrals, ending at the D-Day beaches of Normandy. Experience Gothic architecture, magnificent gardens, and the transition from royal châteaux to wartime history.</p>
+                <a href="https://maps.app.goo.gl/DbrHVNVP4pxHp6vG7" target="_blank" class="map-link">
+                    📍 Open Day 7 Route Map
+                </a>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">9:00 AM</div>
+                <div class="activity-title"><span class="emoji">🧳</span>Check Out of Auberge du Bon Laboureur</div>
+                <div class="activity-details">Farewell to Loire Valley and your charming Chenonceaux hotel</div>
+            </div>
+
+            <div class="route-section">
+                <h3>🚗 Historic Cities Route</h3>
+                <div class="route-item">
+                    <div class="route-location">Tours - Cathédrale Saint-Gatien</div>
+                    <div class="route-description">Stunning Gothic cathedral with magnificent stained glass windows - perfect photo stop</div>
+                </div>
+                <div class="route-item">
+                    <div class="route-location">Château de Villandry</div>
+                    <div class="route-description">Renaissance château famous for its ornamental gardens and geometric patterns</div>
+                </div>
+                <div class="route-item">
+                    <div class="route-location">Le Mans - Cathedral of Saint Julian</div>
+                    <div class="route-description">Magnificent Gothic-Romanesque cathedral with stunning flying buttresses</div>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">10:00 AM</div>
+                <div class="activity-title"><span class="emoji">⛪</span>Drive by Cathédrale Saint-Gatien, Tours</div>
+                <div class="activity-details">Quick stop to admire this Gothic masterpiece with incredible rose windows</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">11:00 AM</div>
+                <div class="activity-title"><span class="emoji">🌺</span>Tour Château de Villandry</div>
+                <div class="activity-details">Famous Renaissance gardens with ornamental patterns - photography paradise!</div>
+            </div>
+
+            <div class="dining-section">
+                <h3>🍽️ Lunch Options</h3>
+                <div class="dining-option">
+                    <div class="dining-name">L'Étape Gourmande (Villandry)</div>
+                    <div class="dining-description">17th-century farm restaurant near Château de Villandry with authentic Touraine cuisine</div>
+                </div>
+                <div class="dining-option">
+                    <div class="dining-name">Le Verger (Le Mans area)</div>
+                    <div class="dining-description">Domaine de l'Epau restaurant emphasizing organic and seasonal ingredients</div>
+                </div>
+                <div class="dining-option">
+                    <div class="dining-name">Auberge de Bagatelle (Le Mans)</div>
+                    <div class="dining-description">Michelin-starred restaurant with exceptional "Pleasure" lunch menu</div>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">2:00 PM</div>
+                <div class="activity-title"><span class="emoji">⛪</span>Cathedral of Saint Julian, Le Mans</div>
+                <div class="activity-details">Spectacular Gothic-Romanesque architecture with impressive flying buttresses</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">4:00 PM</div>
+                <div class="activity-title"><span class="emoji">🚗</span>Drive to Normandy</div>
+                <div class="activity-details">Scenic countryside drive toward the historic D-Day landing beaches</div>
+            </div>
+
+            <div class="hotel-info">
+                <h3>🏨 Tonight's Accommodation</h3>
+                <p><strong>Les Villas d'Arromanches</strong><br>
+                Charming 19th-century Norman house just 200 meters from Gold Beach - perfect for exploring D-Day history</p>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">6:00 PM</div>
+                <div class="activity-title"><span class="emoji">🏨</span>Check In to Les Villas d'Arromanches</div>
+                <div class="activity-details">Relax in your historic Norman villa with swimming pool and lush park</div>
+            </div>
+
+            <div class="dining-section">
+                <h3>🍽️ Dinner Options in Arromanches</h3>
+                <div class="dining-option">
+                    <div class="dining-name">Le Mulberry</div>
+                    <div class="dining-description">Charming French cuisine just 0.2 miles from your hotel - highly recommended</div>
+                </div>
+                <div class="dining-option">
+                    <div class="dining-name">Hotel de Normandie Restaurant</div>
+                    <div class="dining-description">Sea view dining with fresh seafood platters and local Norman specialties</div>
+                </div>
+                <div class="dining-option">
+                    <div class="dining-name">Hotel de la Marine</div>
+                    <div class="dining-description">Elegant dining with tables overlooking the beach - perfect for sunset dinner</div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Day 7 Travel Tips</h4>
+                <p>This is a long driving day but filled with incredible stops! Villandry gardens are best in morning light. Le Mans Cathedral is architecturally stunning. Your Normandy hotel is perfectly positioned for D-Day beach exploration tomorrow. L'Étape Gourmande at Villandry offers authentic local cuisine. Book dinner early in Arromanches as it's a popular area!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
