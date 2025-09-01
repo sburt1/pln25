@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris Adventure - Day 5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #ffffff 50%, #dc2626 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            border: 3px solid #1e3a8a;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #dc2626 0%, #1e3a8a 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid #ffffff;
+        }
+
+        .header::before {
+            content: '🇫🇷';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 100px;
+            opacity: 0.3;
+            transform: rotate(15deg);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .date {
+            font-size: 1.4em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .district-intro {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            border: 2px solid #dc2626;
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+        }
+
+        .district-intro h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .district-intro p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .map-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            margin-top: 15px;
+            font-weight: bold;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .map-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .itinerary-item {
+            background: linear-gradient(135deg, #f8faff, #eff6ff);
+            border-left: 5px solid #dc2626;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+        }
+
+        .itinerary-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
+            border-left-color: #1e3a8a;
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            border: 2px solid #1e3a8a;
+        }
+
+        .activity-title {
+            font-size: 1.2em;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .activity-details {
+            color: #374151;
+            font-style: italic;
+            margin-left: 15px;
+        }
+
+        .chateau-section {
+            background: linear-gradient(135deg, #dc2626, #1e3a8a);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 3px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .chateau-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            text-align: center;
+        }
+
+        .chateau-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .chateau-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ffffff;
+        }
+
+        .chateau-name {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .chateau-description {
+            font-size: 0.9em;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .route-section {
+            background: linear-gradient(135deg, #f8faff, #eff6ff);
+            border: 2px solid #1e3a8a;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .route-section h3 {
+            color: #dc2626;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+        .route-item {
+            background: rgba(220, 38, 38, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid #1e3a8a;
+        }
+
+        .route-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .route-location {
+            color: #1e3a8a;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .route-description {
+            color: #374151;
+            font-size: 0.9em;
+        }
+
+        .hotel-info {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px solid #dc2626;
+        }
+
+        .hotel-info h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .hotel-info p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border: 2px solid #dc2626;
+        }
+
+        .tip-box h4 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .date {
+                font-size: 1.1em;
+            }
+            
+            .content {
+                padding: 25px 20px;
+            }
+            
+            .itinerary-item {
+                padding: 20px;
+            }
+
+            .chateau-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Loire Valley Adventure</h1>
+            <div class="date">Day 5 - Sunday, September 7</div>
+        </div>
+        
+        <div class="content">
+            <div class="district-intro">
+                <h3>🏰 Loire Valley Château Grand Tour</h3>
+                <p>The ultimate day of royal splendor! Journey through the Loire Valley visiting magnificent Renaissance châteaux, Gothic cathedrals, and historic French towns.</p>
+                <a href="https://maps.app.goo.gl/3beHfjXxmyyQFaSQ8" target="_blank" class="map-link">
+                    📍 Open Day 5 Château Route
+                </a>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">9:00 AM</div>
+                <div class="activity-title"><span class="emoji">🧳</span>Check Out of Aigle Noir Fontainebleau</div>
+                <div class="activity-details">Pack up for your Loire Valley château adventure</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">9:30 AM</div>
+                <div class="activity-title"><span class="emoji">🏰</span>Tour Fontainebleau</div>
+                <div class="activity-details">Explore Napoleon's palace - stunning Renaissance and classical architecture</div>
+            </div>
+
+            <div class="route-section">
+                <h3>🚗 Loire Valley Journey</h3>
+                <div class="route-item">
+                    <div class="route-location">Drive to Orléans</div>
+                    <div class="route-description">Historic city where Joan of Arc liberated France</div>
+                </div>
+                <div class="route-item">
+                    <div class="route-location">Cathedral Sainte-Croix d'Orléans</div>
+                    <div class="route-description">Magnificent Gothic cathedral with Joan of Arc connections</div>
+                </div>
+                <div class="route-item">
+                    <div class="route-location">Drive to Beaugency</div>
+                    <div class="route-description">Medieval Loire Valley town with historic charm</div>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">11:30 AM</div>
+                <div class="activity-title"><span class="emoji">⛪</span>Cathedral Sainte-Croix, Orléans</div>
+                <div class="activity-details">Gothic masterpiece associated with Joan of Arc's victory</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">1:00 PM</div>
+                <div class="activity-title"><span class="emoji">🏰</span>Château de Chambord</div>
+                <div class="activity-details">The crown jewel - François I's Renaissance masterpiece with double-spiral staircase</div>
+            </div>
+
+            <div class="chateau-section">
+                <h3>🏰 Optional Château Discoveries</h3>
+                <div class="chateau-grid">
+                    <div class="chateau-card">
+                        <div class="chateau-name">Château de Villesavin</div>
+                        <div class="chateau-description">Intimate Renaissance château built by Chambord's architect</div>
+                    </div>
+                    <div class="chateau-card">
+                        <div class="chateau-name">Château de Cheverny</div>
+                        <div class="chateau-description">Inspiration for Tintin's Moulinsart - classical French elegance</div>
+                    </div>
+                    <div class="chateau-card">
+                        <div class="chateau-name">Domaine de Chaumont-sur-Loire</div>
+                        <div class="chateau-description">Medieval fortress with contemporary garden festival</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">4:00 PM</div>
+                <div class="activity-title"><span class="emoji">🏰</span>Château Royal de Blois</div>
+                <div class="activity-details">Four wings spanning different architectural periods - a royal history lesson</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">5:30 PM</div>
+                <div class="activity-title"><span class="emoji">🏰</span>Château d'Amboise</div>
+                <div class="activity-details">Leonardo da Vinci's final residence - Renaissance art meets royal history</div>
+            </div>
+
+            <div class="hotel-info">
+                <h3>🏨 Tonight's Accommodation</h3>
+                <p><strong>Auberge du Bon Laboureur</strong><br>
+                Historic inn in Chenonceaux - perfectly positioned near the famous château</p>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">7:00 PM</div>
+                <div class="activity-title"><span class="emoji">🏨</span>Check In to Auberge du Bon Laboureur</div>
+                <div class="activity-details">Relax at your charming historic inn in Chenonceaux</div>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Day 5 Travel Tips</h4>
+                <p>This is a full day of driving and château visits! Chambord is massive - allow 2+ hours. Cheverny has beautiful gardens. Amboise is where Leonardo da Vinci spent his final years. Consider picking 2-3 optional châteaux based on your interests. Your hotel is walking distance from Château de Chenonceaux for tomorrow!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
