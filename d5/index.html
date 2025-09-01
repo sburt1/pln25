@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paris Adventure - Day 5</title>
+    <title>Loire Valley Adventure - Day 5</title>
     <style>
         * {
             margin: 0;
@@ -143,6 +143,17 @@
             font-weight: bold;
         }
 
+        .activity-title a {
+            color: #1e3a8a;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .activity-title a:hover {
+            color: #dc2626;
+            text-decoration: underline;
+        }
+
         .activity-details {
             color: #374151;
             font-style: italic;
@@ -182,6 +193,17 @@
             font-size: 1.1em;
             font-weight: bold;
             margin-bottom: 8px;
+        }
+
+        .chateau-name a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .chateau-name a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
         }
 
         .chateau-description {
@@ -224,6 +246,17 @@
             margin-bottom: 5px;
         }
 
+        .route-location a {
+            color: #1e3a8a;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .route-location a:hover {
+            color: #dc2626;
+            text-decoration: underline;
+        }
+
         .route-description {
             color: #374151;
             font-size: 0.9em;
@@ -244,10 +277,30 @@
             font-size: 1.4em;
         }
 
+        .hotel-info h3 a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .hotel-info h3 a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
         .hotel-info p {
             font-size: 1.1em;
             line-height: 1.6;
             opacity: 0.95;
+        }
+
+        .hotel-info a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: underline;
+        }
+
+        .hotel-info a:hover {
+            color: white;
         }
 
         .tip-box {
@@ -264,9 +317,51 @@
             font-size: 1.1em;
         }
 
+        .tip-box a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: underline;
+        }
+
+        .tip-box a:hover {
+            color: white;
+        }
+
         .emoji {
             font-size: 1.5em;
             margin-right: 10px;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .home-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: 3px solid #ffffff;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+        }
+
+        .home-button:hover {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(220, 38, 38, 0.4);
+            color: white;
         }
 
         @media (max-width: 768px) {
@@ -310,24 +405,24 @@
 
             <div class="itinerary-item">
                 <div class="time-badge">9:00 AM</div>
-                <div class="activity-title"><span class="emoji">🧳</span>Check Out of Aigle Noir Fontainebleau</div>
+                <div class="activity-title"><span class="emoji">🧳</span>Check Out of <a href="https://www.aiglenoirhotel.com/en/" target="_blank">Aigle Noir Fontainebleau</a></div>
                 <div class="activity-details">Pack up for your Loire Valley château adventure</div>
             </div>
 
             <div class="itinerary-item">
                 <div class="time-badge">9:30 AM</div>
-                <div class="activity-title"><span class="emoji">🏰</span>Tour Fontainebleau</div>
+                <div class="activity-title"><span class="emoji">🏰</span>Tour <a href="https://www.chateaudefontainebleau.fr/en/" target="_blank">Fontainebleau</a></div>
                 <div class="activity-details">Explore Napoleon's palace - stunning Renaissance and classical architecture</div>
             </div>
 
             <div class="route-section">
                 <h3>🚗 Loire Valley Journey</h3>
                 <div class="route-item">
-                    <div class="route-location">Drive to Orléans</div>
+                    <div class="route-location">Drive to <a href="https://www.tourisme-orleansmetropole.com/en/" target="_blank">Orléans</a></div>
                     <div class="route-description">Historic city where Joan of Arc liberated France</div>
                 </div>
                 <div class="route-item">
-                    <div class="route-location">Cathedral Sainte-Croix d'Orléans</div>
+                    <div class="route-location"><a href="https://www.cathedrale-orleans.fr" target="_blank">Cathedral Sainte-Croix d'Orléans</a></div>
                     <div class="route-description">Magnificent Gothic cathedral with Joan of Arc connections</div>
                 </div>
                 <div class="route-item">
@@ -338,13 +433,13 @@
 
             <div class="itinerary-item">
                 <div class="time-badge">11:30 AM</div>
-                <div class="activity-title"><span class="emoji">⛪</span>Cathedral Sainte-Croix, Orléans</div>
+                <div class="activity-title"><span class="emoji">⛪</span><a href="https://www.cathedrale-orleans.fr" target="_blank">Cathedral Sainte-Croix, Orléans</a></div>
                 <div class="activity-details">Gothic masterpiece associated with Joan of Arc's victory</div>
             </div>
 
             <div class="itinerary-item">
                 <div class="time-badge">1:00 PM</div>
-                <div class="activity-title"><span class="emoji">🏰</span>Château de Chambord</div>
+                <div class="activity-title"><span class="emoji">🏰</span><a href="https://www.chambord.org/en/" target="_blank">Château de Chambord</a></div>
                 <div class="activity-details">The crown jewel - François I's Renaissance masterpiece with double-spiral staircase</div>
             </div>
 
@@ -356,11 +451,11 @@
                         <div class="chateau-description">Intimate Renaissance château built by Chambord's architect</div>
                     </div>
                     <div class="chateau-card">
-                        <div class="chateau-name">Château de Cheverny</div>
+                        <div class="chateau-name"><a href="https://www.chateau-cheverny.fr/" target="_blank">Château de Cheverny</a></div>
                         <div class="chateau-description">Inspiration for Tintin's Moulinsart - classical French elegance</div>
                     </div>
                     <div class="chateau-card">
-                        <div class="chateau-name">Domaine de Chaumont-sur-Loire</div>
+                        <div class="chateau-name"><a href="https://www.domaine-chaumont.fr/en" target="_blank">Domaine de Chaumont-sur-Loire</a></div>
                         <div class="chateau-description">Medieval fortress with contemporary garden festival</div>
                     </div>
                 </div>
@@ -368,33 +463,41 @@
 
             <div class="itinerary-item">
                 <div class="time-badge">4:00 PM</div>
-                <div class="activity-title"><span class="emoji">🏰</span>Château Royal de Blois</div>
+                <div class="activity-title"><span class="emoji">🏰</span><a href="https://www.chateaudeblois.fr/en/" target="_blank">Château Royal de Blois</a></div>
                 <div class="activity-details">Four wings spanning different architectural periods - a royal history lesson</div>
             </div>
 
             <div class="itinerary-item">
                 <div class="time-badge">5:30 PM</div>
-                <div class="activity-title"><span class="emoji">🏰</span>Château d'Amboise</div>
+                <div class="activity-title"><span class="emoji">🏰</span><a href="https://www.chateau-amboise.com/en/" target="_blank">Château d'Amboise</a></div>
                 <div class="activity-details">Leonardo da Vinci's final residence - Renaissance art meets royal history</div>
             </div>
 
             <div class="hotel-info">
-                <h3>🏨 Tonight's Accommodation</h3>
-                <p><strong>Auberge du Bon Laboureur</strong><br>
-                Historic inn in Chenonceaux - perfectly positioned near the famous château</p>
+                <h3>🏨 <a href="https://www.bonlaboureur.com/en/loire-valley-hotels" target="_blank">Tonight's Accommodation</a></h3>
+                <p><strong><a href="https://www.bonlaboureur.com/en/loire-valley-hotels" target="_blank" style="color: rgba(255, 255, 255, 0.9); text-decoration: underline;">Auberge du Bon Laboureur</a></strong><br>
+                Historic 5-star inn in Chenonceaux - perfectly positioned near the famous château</p>
             </div>
 
             <div class="itinerary-item">
                 <div class="time-badge">7:00 PM</div>
-                <div class="activity-title"><span class="emoji">🏨</span>Check In to Auberge du Bon Laboureur</div>
-                <div class="activity-details">Relax at your charming historic inn in Chenonceaux</div>
+                <div class="activity-title"><span class="emoji">🏨</span>Check In to <a href="https://www.bonlaboureur.com/en/loire-valley-hotels" target="_blank">Auberge du Bon Laboureur</a></div>
+                <div class="activity-details">Relax at your charming historic inn in Chenonceaux - just 200m from Château de Chenonceau</div>
             </div>
 
             <div class="tip-box">
                 <h4>💡 Day 5 Travel Tips</h4>
-                <p>This is a full day of driving and château visits! Chambord is massive - allow 2+ hours. Cheverny has beautiful gardens. Amboise is where Leonardo da Vinci spent his final years. Consider picking 2-3 optional châteaux based on your interests. Your hotel is walking distance from Château de Chenonceaux for tomorrow!</p>
+                <p>This is a full day of driving and château visits! <a href="https://www.chambord.org/en/" target="_blank">Chambord</a> is massive - allow 2+ hours. <a href="https://www.chateau-cheverny.fr/" target="_blank">Cheverny</a> has beautiful gardens and Tintin connections. <a href="https://www.chateau-amboise.com/en/" target="_blank">Amboise</a> is where Leonardo da Vinci spent his final years. Consider picking 2-3 optional châteaux based on your interests. Your hotel is walking distance from Château de Chenonceaux for tomorrow!</p>
             </div>
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="https://sburt1.github.io/pln25/home/" class="home-button">
+                <span class="emoji">🏠</span>Back to Home Page
+            </a>
+        </div>
+    </footer>
 </body>
 </html>
