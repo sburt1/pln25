@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>France Adventure - Day 7</title>
+    <title>Impressionist Journey - Day 9</title>
     <style>
         * {
             margin: 0;
@@ -149,56 +149,34 @@
             margin-left: 15px;
         }
 
-        .location-link {
+        .activity-details a {
             color: #dc2626;
-            text-decoration: none;
-            font-weight: bold;
-            border-bottom: 1px dashed #dc2626;
-            transition: all 0.3s ease;
+            text-decoration: underline;
         }
 
-        .location-link:hover {
+        .activity-details a:hover {
             color: #1e3a8a;
-            border-bottom-color: #1e3a8a;
         }
 
-        .route-section {
-            background: linear-gradient(135deg, #f8faff, #eff6ff);
-            border: 2px solid #1e3a8a;
-            border-radius: 15px;
+        .monet-section {
+            background: linear-gradient(135deg, #dc2626, #1e3a8a);
+            color: white;
             padding: 25px;
+            border-radius: 15px;
             margin: 30px 0;
+            text-align: center;
+            border: 3px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .route-section h3 {
-            color: #dc2626;
-            margin-bottom: 20px;
-            text-align: center;
+        .monet-section h3 {
+            margin-bottom: 15px;
             font-size: 1.4em;
         }
 
-        .route-item {
-            background: rgba(220, 38, 38, 0.05);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border-left: 3px solid #1e3a8a;
-        }
-
-        .route-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .route-location {
-            color: #1e3a8a;
-            font-weight: bold;
+        .monet-section p {
             font-size: 1.1em;
-            margin-bottom: 5px;
-        }
-
-        .route-description {
-            color: #374151;
-            font-size: 0.9em;
+            line-height: 1.6;
         }
 
         .dining-section {
@@ -236,20 +214,67 @@
         }
 
         .dining-name a {
-            color: white;
-            text-decoration: none;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.7);
-            transition: all 0.3s ease;
+            color: #ffffff;
+            text-decoration: underline;
         }
 
         .dining-name a:hover {
-            border-bottom-color: white;
+            color: #f3f4f6;
         }
 
         .dining-description {
             font-size: 0.9em;
             opacity: 0.9;
             line-height: 1.4;
+        }
+
+        .route-section {
+            background: linear-gradient(135deg, #f8faff, #eff6ff);
+            border: 2px solid #1e3a8a;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .route-section h3 {
+            color: #dc2626;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+        .route-item {
+            background: rgba(220, 38, 38, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid #1e3a8a;
+        }
+
+        .route-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .route-location {
+            color: #1e3a8a;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .route-location a {
+            color: #1e3a8a;
+            text-decoration: none;
+        }
+
+        .route-location a:hover {
+            text-decoration: underline;
+            color: #dc2626;
+        }
+
+        .route-description {
+            color: #374151;
+            font-size: 0.9em;
         }
 
         .hotel-info {
@@ -274,14 +299,12 @@
         }
 
         .hotel-info a {
-            color: white;
-            text-decoration: none;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.7);
-            transition: all 0.3s ease;
+            color: #ffffff;
+            text-decoration: underline;
         }
 
         .hotel-info a:hover {
-            border-bottom-color: white;
+            color: #f3f4f6;
         }
 
         .tip-box {
@@ -298,54 +321,35 @@
             font-size: 1.1em;
         }
 
-        .footer-nav {
-            background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 100%);
-            padding: 25px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 3px solid #ffffff;
-        }
-
-        .nav-button {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: bold;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-button:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
-            border-color: rgba(255, 255, 255, 0.6);
-        }
-
-        .nav-button.disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .nav-button.disabled:hover {
-            transform: none;
-        }
-
-        .day-counter {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 20px;
-            border-radius: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
         .emoji {
             font-size: 1.5em;
             margin-right: 10px;
+        }
+
+        .footer-nav {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+        }
+
+        .home-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626, #1e3a8a);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            border: 3px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(220, 38, 38, 0.4);
+            background: linear-gradient(135deg, #ef4444, #3b82f6);
         }
 
         @media (max-width: 768px) {
@@ -364,144 +368,141 @@
             .itinerary-item {
                 padding: 20px;
             }
-
-            .footer-nav {
-                flex-direction: column;
-                gap: 15px;
-                padding: 20px;
-            }
-
-            .nav-button {
-                width: 100%;
-                justify-content: center;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>France Adventure</h1>
-            <div class="date">Day 7 - Tuesday, September 9</div>
+            <h1>Impressionist Journey</h1>
+            <div class="date">Day 9 - Thursday, September 11</div>
         </div>
         
         <div class="content">
             <div class="district-intro">
-                <h3>🚗 Loire Valley to Normandy Journey</h3>
-                <p>A scenic drive through historic French cities and cathedrals, ending at the D-Day beaches of Normandy. Experience Gothic architecture, magnificent gardens, and the transition from royal châteaux to wartime history.</p>
-                <a href="https://maps.app.goo.gl/ZpQzN4bTKVNUoKKJA" target="_blank" class="map-link">
-                    📍 Open Day 7 Route Map
+                <h3>🎨 From Normandy to Monet's Gardens</h3>
+                <p>Your final French adventure takes you through Gothic splendor in Rouen to the Impressionist paradise of Giverny, ending with your return to Paris. Experience the landscapes that inspired Monet's masterpieces!</p>
+                <a href="https://maps.app.goo.gl/79sqcwwG62UAnznE6" target="_blank" class="map-link">
+                    📍 Open Day 9 Route Map
                 </a>
             </div>
 
             <div class="itinerary-item">
                 <div class="time-badge">9:00 AM</div>
-                <div class="activity-title"><span class="emoji">🧳</span>Check Out of <a href="https://www.bonlaboureur.com/" target="_blank" class="location-link">Auberge du Bon Laboureur</a></div>
-                <div class="activity-details">Farewell to Loire Valley and your charming Chenonceaux hotel</div>
+                <div class="activity-title"><span class="emoji">🧳</span>Check Out of Les Villas d'Arromanches</div>
+                <div class="activity-details">Farewell to Normandy's D-Day coast and your historic villa</div>
             </div>
 
             <div class="route-section">
-                <h3>🚗 Historic Cities Route</h3>
+                <h3>🚗 Impressionist Route</h3>
                 <div class="route-item">
-                    <div class="route-location"><a href="https://www.cathedrale-tours.fr/" target="_blank" class="location-link">Tours - Cathédrale Saint-Gatien</a></div>
-                    <div class="route-description">Stunning Gothic cathedral with magnificent stained glass windows - perfect photo stop</div>
+                    <div class="route-location"><a href="https://www.cathedrale-rouen.net/site/visiter.php?lang=en" target="_blank">Rouen Cathedral</a></div>
+                    <div class="route-description">Gothic masterpiece immortalized in Monet's famous cathedral series - tallest spire in France</div>
                 </div>
                 <div class="route-item">
-                    <div class="route-location"><a href="https://www.chateauvillandry.fr/en" target="_blank" class="location-link">Château de Villandry</a></div>
-                    <div class="route-description">Renaissance château famous for its ornamental gardens and geometric patterns</div>
+                    <div class="route-location"><a href="https://claudemonetgiverny.fr/en/" target="_blank">Giverny - Monet's Gardens</a></div>
+                    <div class="route-description">The artist's home for 43 years - inspiration for his Water Lilies masterpieces</div>
                 </div>
                 <div class="route-item">
-                    <div class="route-location"><a href="https://www.cathedrale-lemans.fr/" target="_blank" class="location-link">Le Mans - Cathedral of Saint Julian</a></div>
-                    <div class="route-description">Magnificent Gothic-Romanesque cathedral with stunning flying buttresses</div>
+                    <div class="route-location"><a href="https://www.citizenm.com/hotels/europe/paris/charles-de-gaulle-airport-hotel" target="_blank">Return to Paris CDG</a></div>
+                    <div class="route-description">Check in near the airport and return your rental car</div>
                 </div>
-            </div>
-
-            <div class="itinerary-item">
-                <div class="time-badge">10:00 AM</div>
-                <div class="activity-title"><span class="emoji">⛪</span>Drive by <a href="https://www.cathedrale-tours.fr/" target="_blank" class="location-link">Cathédrale Saint-Gatien, Tours</a></div>
-                <div class="activity-details">Quick stop to admire this Gothic masterpiece with incredible rose windows</div>
             </div>
 
             <div class="itinerary-item">
                 <div class="time-badge">11:00 AM</div>
-                <div class="activity-title"><span class="emoji">🌺</span>Tour <a href="https://www.chateauvillandry.fr/en" target="_blank" class="location-link">Château de Villandry</a></div>
-                <div class="activity-details">Famous Renaissance gardens with ornamental patterns - photography paradise!</div>
+                <div class="activity-title"><span class="emoji">⛪</span>Rouen Cathedral</div>
+                <div class="activity-details">See the Gothic cathedral that Monet painted in 30 different canvases - France's tallest spire<br>
+                <a href="https://en.visiterouen.com/" target="_blank">Visit Rouen Tourism Official Site</a> | 
+                <a href="https://en.normandie-tourisme.fr/unmissable-sites/rouen/" target="_blank">Normandy Tourism</a></div>
             </div>
 
             <div class="dining-section">
-                <h3>🍽️ Lunch Options</h3>
+                <h3>🍽️ Lunch Options in Rouen</h3>
                 <div class="dining-option">
-                    <div class="dining-name"><a href="https://www.letapegourmande.fr/" target="_blank">L'Étape Gourmande (Villandry)</a></div>
-                    <div class="dining-description">17th-century farm restaurant near Château de Villandry with authentic Touraine cuisine</div>
+                    <div class="dining-name">Brasserie Paul</div>
+                    <div class="dining-description">Historic restaurant since 1911 on Place de la Cathédrale with amazing cathedral views - perfect location!</div>
                 </div>
                 <div class="dining-option">
-                    <div class="dining-name"><a href="https://www.domainedelepau.fr/" target="_blank">Le Verger (Le Mans area)</a></div>
-                    <div class="dining-description">Domaine de l'Epau restaurant emphasizing organic and seasonal ingredients</div>
-                </div>
-                <div class="dining-option">
-                    <div class="dining-name"><a href="https://aubergedebagatelle.fr/" target="_blank">Auberge de Bagatelle (Le Mans)</a></div>
-                    <div class="dining-description">Michelin-starred restaurant with exceptional "Pleasure" lunch menu</div>
+                    <div class="dining-name">Traditional Norman Brasserie</div>
+                    <div class="dining-description">Reasonably priced meals with daily set menus featuring local Norman specialties</div>
                 </div>
             </div>
 
-            <div class="itinerary-item">
-                <div class="time-badge">2:00 PM</div>
-                <div class="activity-title"><span class="emoji">⛪</span><a href="https://www.cathedrale-lemans.fr/" target="_blank" class="location-link">Cathedral of Saint Julian, Le Mans</a></div>
-                <div class="activity-details">Spectacular Gothic-Romanesque architecture with impressive flying buttresses</div>
+            <div class="monet-section">
+                <h3>🎨 Claude Monet's Giverny</h3>
+                <p>For 43 years, this was Monet's beloved home and the inspiration for his most famous works. Walk through the same gardens that inspired the Water Lilies series and see the yellow dining room where he entertained fellow Impressionist painters.</p>
             </div>
 
             <div class="itinerary-item">
-                <div class="time-badge">4:00 PM</div>
-                <div class="activity-title"><span class="emoji">🚗</span>Drive to Normandy</div>
-                <div class="activity-details">Scenic countryside drive toward the historic D-Day landing beaches</div>
+                <div class="time-badge">2:30 PM</div>
+                <div class="activity-title"><span class="emoji">🌸</span>Maison et Jardins de Claude Monet</div>
+                <div class="activity-details">Explore the artist's home, famous yellow dining room, and the gardens that inspired his masterpieces<br>
+                <a href="https://claudemonetgiverny.fr/en/useful-information/" target="_blank">Visit Information & Tickets</a> | 
+                <a href="https://www.giverny.org/gardens/fcm/visitgb.htm" target="_blank">Giverny Gardens Guide</a></div>
+            </div>
+
+            <div class="dining-section">
+                <h3>🍽️ Lunch at Giverny</h3>
+                <div class="dining-option">
+                    <div class="dining-name">Restaurant Les Nymphéas</div>
+                    <div class="dining-description">Historic restaurant across from Monet's house offering recipes from his era - the perfect Impressionist dining experience</div>
+                </div>
+                <div class="dining-option">
+                    <div class="dining-name">Ancien Hôtel Baudy</div>
+                    <div class="dining-description">Legendary establishment where Monet's artist friends (Cézanne, Renoir, Rodin) dined 1887-1914</div>
+                </div>
+                <div class="dining-option">
+                    <div class="dining-name">La Parenthèse</div>
+                    <div class="dining-description">Charming restaurant with flower-filled setting and seasonal cuisine - short walk from Monet's gardens</div>
+                </div>
             </div>
 
             <div class="hotel-info">
-                <h3>🏨 Tonight's Accommodation</h3>
-                <p><strong><a href="https://www.lesvillas-arromanches.com/" target="_blank">Les Villas d'Arromanches</a></strong><br>
-                Charming 19th-century Norman house just 200 meters from Gold Beach - perfect for exploring D-Day history</p>
+                <h3>🏨 Tonight's Airport Hotel</h3>
+                <p><strong><a href="https://www.citizenm.com/hotels/europe/paris/charles-de-gaulle-airport-hotel" target="_blank">citizenM Paris Charles de Gaulle</a></strong><br>
+                Modern airport hotel with stylish design - perfect for your departure tomorrow</p>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">5:30 PM</div>
+                <div class="activity-title"><span class="emoji">🏨</span>Check In to citizenM Paris CDG</div>
+                <div class="activity-details">Contemporary design hotel near the airport for your final night<br>
+                <a href="https://www.citizenm.com/hotels/europe/paris/charles-de-gaulle-airport-hotel" target="_blank">Hotel Information & Booking</a></div>
             </div>
 
             <div class="itinerary-item">
                 <div class="time-badge">6:00 PM</div>
-                <div class="activity-title"><span class="emoji">🏨</span>Check In to <a href="https://www.lesvillas-arromanches.com/" target="_blank" class="location-link">Les Villas d'Arromanches</a></div>
-                <div class="activity-details">Relax in your historic Norman villa with swimming pool and lush park</div>
+                <div class="activity-title"><span class="emoji">🚗</span>Return Rental Car to Hertz</div>
+                <div class="activity-details">End of your magnificent French road trip adventure</div>
             </div>
 
             <div class="dining-section">
-                <h3>🍽️ Dinner Options in Arromanches</h3>
+                <h3>🍽️ Farewell Dinner Options</h3>
                 <div class="dining-option">
-                    <div class="dining-name"><a href="https://www.lemulberry.com/" target="_blank">Le Mulberry</a></div>
-                    <div class="dining-description">Charming French cuisine just 0.2 miles from your hotel - highly recommended</div>
+                    <div class="dining-name">Hotel Restaurant</div>
+                    <div class="dining-description">Contemporary dining at citizenM with international cuisine and stylish atmosphere</div>
                 </div>
                 <div class="dining-option">
-                    <div class="dining-name"><a href="https://www.hotel-de-normandie-arromanches.fr/" target="_blank">Hotel de Normandie Restaurant</a></div>
-                    <div class="dining-description">Sea view dining with fresh seafood platters and local Norman specialties</div>
+                    <div class="dining-name">CDG Airport Dining</div>
+                    <div class="dining-description">Variety of French restaurants and brasseries within the airport complex</div>
                 </div>
                 <div class="dining-option">
-                    <div class="dining-name"><a href="https://www.hotel-de-la-marine.fr/" target="_blank">Hotel de la Marine</a></div>
-                    <div class="dining-description">Elegant dining with tables overlooking the beach - perfect for sunset dinner</div>
+                    <div class="dining-name">Nearby Roissy</div>
+                    <div class="dining-description">Local restaurants in the airport area for your final French dining experience</div>
                 </div>
             </div>
 
             <div class="tip-box">
-                <h4>💡 Day 7 Travel Tips</h4>
-                <p>This is a long driving day but filled with incredible stops! Villandry gardens are best in morning light. Le Mans Cathedral is architecturally stunning. Your Normandy hotel is perfectly positioned for D-Day beach exploration tomorrow. L'Étape Gourmande at Villandry offers authentic local cuisine. Book dinner early in Arromanches as it's a popular area!</p>
+                <h4>💡 Day 9 Journey Tips</h4>
+                <p>This is your final day in France - savor every moment! Rouen Cathedral is stunning - the same views Monet painted. At Giverny, arrive early (opens 9:30 AM) to avoid crowds. The gardens are seasonal but always beautiful. Restaurant Les Nymphéas offers the most authentic Monet-era dining experience. Allow extra time for car return at CDG. Consider buying art books or prints as perfect French souvenirs!</p>
             </div>
-        </div>
 
-        <div class="footer-nav">
-            <a href="france-day6.html" class="nav-button">
-                ← Day 6: Chenonceau & Loire Valley
-            </a>
-            
-            <div class="day-counter">
-                Day 7 of 10
+            <div class="footer-nav">
+                <a href="#" onclick="window.history.back(); return false;" class="home-button">
+                    🏠 Return to Tour Home
+                </a>
             </div>
-            
-            <a href="france-day8.html" class="nav-button">
-                Day 8: Normandy D-Day Beaches →
-            </a>
         </div>
     </div>
 </body>
