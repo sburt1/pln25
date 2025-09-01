@@ -261,6 +261,36 @@
             margin-right: 10px;
         }
 
+        .footer {
+            background: linear-gradient(135deg, #1e3a8a, #dc2626);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-top: 3px solid #ffffff;
+            margin-top: 40px;
+        }
+
+        .home-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 1.1em;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2.2em;
@@ -275,6 +305,10 @@
             }
             
             .itinerary-item {
+                padding: 20px;
+            }
+
+            .footer {
                 padding: 20px;
             }
         }
@@ -304,7 +338,13 @@
 
             <div class="itinerary-item">
                 <div class="time-badge">10:00 AM</div>
-                <div class="activity-title"><span class="emoji">🥐</span>Snack at <a href="https://www.laduree.fr/en/laduree-paris-bonaparte.html" target="_blank">Ladurée Café</a></div>
+                <div class="activity-title"><span class="emoji">🥐</span>Award-Winning Croissant at <a href="https://www.tripadvisor.com/Restaurant_Review-g187147-d14788722-Reviews-La_Maison_d_Isabelle-Paris_Ile_de_France.html" target="_blank">La Maison d'Isabelle</a></div>
+                <div class="activity-details">Best croissant in Paris 2018 winner! - 47ter Boulevard Saint-Germain (near Luxembourg)</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">10:30 AM</div>
+                <div class="activity-title"><span class="emoji">🥐</span>Coffee at <a href="https://www.laduree.fr/en/laduree-paris-bonaparte.html" target="_blank">Ladurée Café</a></div>
                 <div class="activity-details">Famous macarons and pastries near Luxembourg Garden - perfect for people watching</div>
             </div>
 
@@ -316,10 +356,6 @@
 
             <div class="shopping-section">
                 <h3>🛍️ Left Bank Boutique Shopping</h3>
-                <div class="shop-item">
-                    <div class="shop-name">La Maison d'Isabelle</div>
-                    <div class="shop-description">Chic boutique with curated fashion and accessories</div>
-                </div>
                 <div class="shop-item">
                     <div class="shop-name">Tapestries of Bucherie</div>
                     <div class="shop-description">Beautiful textiles and home décor in the literary quarter</div>
@@ -373,6 +409,12 @@
                 <h4>💡 Day 3 Travel Tips</h4>
                 <p>The Left Bank is perfect for leisurely strolling - allow extra time for browsing! <a href="https://www.sennelier.fr/en/" target="_blank" style="color: rgba(255, 255, 255, 0.9); text-decoration: underline;">Sennelier</a> is a must for art lovers. The <a href="https://www.musee-orangerie.fr/en" target="_blank" style="color: rgba(255, 255, 255, 0.9); text-decoration: underline;">Orangerie</a> is small but spectacular - perfect for late afternoon. <a href="https://jardin.senat.fr/en/" target="_blank" style="color: rgba(255, 255, 255, 0.9); text-decoration: underline;">Luxembourg Gardens</a> are ideal for a peaceful break between activities.</p>
             </div>
+        </div>
+
+        <div class="footer">
+            <a href="https://sburt1.github.io/pln25/home/" class="home-button">
+                🏠 Back to Home
+            </a>
         </div>
     </div>
 </body>
