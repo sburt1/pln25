@@ -1,1 +1,311 @@
-This is a test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris Adventure - Day 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #ffffff 50%, #dc2626 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            border: 3px solid #1e3a8a;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #dc2626 0%, #1e3a8a 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid #ffffff;
+        }
+
+        .header::before {
+            content: '🇫🇷';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 100px;
+            opacity: 0.3;
+            transform: rotate(15deg);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .date {
+            font-size: 1.4em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .travel-map {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+            border: 2px solid #dc2626;
+        }
+
+        .travel-map h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .map-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .map-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .itinerary-item {
+            background: linear-gradient(135deg, #f8faff, #eff6ff);
+            border-left: 5px solid #dc2626;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+        }
+
+        .itinerary-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
+            border-left-color: #1e3a8a;
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            border: 2px solid #1e3a8a;
+        }
+
+        .activity-title {
+            font-size: 1.2em;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .activity-details {
+            color: #374151;
+            font-style: italic;
+            margin-left: 15px;
+        }
+
+        .highlight-section {
+            background: linear-gradient(135deg, #dc2626, #1e3a8a);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            border: 3px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .highlight-list {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border: 2px solid #dc2626;
+        }
+
+        .tip-box h4 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .date {
+                font-size: 1.1em;
+            }
+            
+            .content {
+                padding: 25px 20px;
+            }
+            
+            .itinerary-item {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Paris Adventure</h1>
+            <div class="date">Day 1 - Wednesday, September 3</div>
+        </div>
+        
+        <div class="content">
+            <div class="travel-map">
+                <h3>📍 Your Travel Route</h3>
+                <a href="https://maps.app.goo.gl/xaaAAV6NzraunzYs6" target="_blank" class="map-link">
+                    Open Interactive Map
+                </a>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">7:30 AM</div>
+                <div class="activity-title"><span class="emoji">✈️</span>Arrive at Charles de Gaulle (CDG)</div>
+                <div class="activity-details">Customs & Immigration processing</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">10:30 AM</div>
+                <div class="activity-title"><span class="emoji">🏨</span>Hotel Check-in</div>
+                <div class="activity-details">Taxi from airport - time to freshen up!</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">11:30 AM</div>
+                <div class="activity-title"><span class="emoji">🌳</span><a href="https://www.paris.fr/lieux/parc-monceau-1804" target="_blank" style="color: #1e3a8a; text-decoration: none;">Parc Monceau</a></div>
+                <div class="activity-details">Beautiful morning stroll through this elegant park</div>
+            </div>
+
+            <div class="highlight-section">
+                <h3>🏛️ Parc Monceau Highlights</h3>
+                <div class="highlight-list">
+                    Egyptian Pyramid • Corinthian Colonnade • Chinese Pagoda
+                </div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">1:00 PM</div>
+                <div class="activity-title"><span class="emoji">🥖</span><a href="https://lepetitvendome.fr/en" target="_blank" style="color: #1e3a8a; text-decoration: none;">First Lunch at Le Petit Vendome</a></div>
+                <div class="activity-details">Classic Parisian bistro experience - famous for best jambon-beurre in Paris!</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">2:30 PM</div>
+                <div class="activity-title"><span class="emoji">🍷</span><a href="https://www.ritzparislecomptoir.com/en" target="_blank" style="color: #1e3a8a; text-decoration: none;">Le Ritz Comptoir</a></div>
+                <div class="activity-details">Luxury pastries by François Perret - famous madeleines and gourmet treats</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">3:15 PM</div>
+                <div class="activity-title"><span class="emoji">🍯</span><a href="https://us.maille.com/blogs/boutiques/paris-la-maison-maille-boutique-update" target="_blank" style="color: #1e3a8a; text-decoration: none;">La Maison Maille</a></div>
+                <div class="activity-details">Iconic mustard boutique since 1747 - fresh mustard on tap in beautiful jars!</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">4:00 PM</div>
+                <div class="activity-title"><span class="emoji">🎨</span><a href="https://www.petitpalais.paris.fr/en" target="_blank" style="color: #1e3a8a; text-decoration: none;">Petit Palais Tour</a></div>
+                <div class="activity-details">Beautiful art museum with stunning Beaux-Arts architecture - FREE admission!</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">5:30 PM</div>
+                <div class="activity-title"><span class="emoji">☕</span><a href="https://www.petitpalais.paris.fr/en/petit-palais/cafe-restaurant" target="_blank" style="color: #1e3a8a; text-decoration: none;">Second Lunch at Café 1902</a></div>
+                <div class="activity-details">Hidden gem café in Petit Palais garden - peaceful terrace in beautiful courtyard</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">6:30 PM</div>
+                <div class="activity-title"><span class="emoji">👗</span>Galerie Dior</div>
+                <div class="activity-details">Fashion and luxury in the heart of Paris</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">7:30 PM</div>
+                <div class="activity-title"><span class="emoji">🛒</span>Carrefour Express</div>
+                <div class="activity-details">Quick grocery run near your hotel</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">8:00 PM</div>
+                <div class="activity-title"><span class="emoji">💤</span>Hotel Nap Time</div>
+                <div class="activity-details">Essential rest after your long travel day</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">9:30 PM</div>
+                <div class="activity-title"><span class="emoji">🍽️</span>Dinner at L'Arc Café</div>
+                <div class="activity-details">Convenient location near your hotel</div>
+            </div>
+
+            <div class="itinerary-item">
+                <div class="time-badge">10:30 PM</div>
+                <div class="activity-title"><span class="emoji">🌃</span>Evening Stroll</div>
+                <div class="activity-details">Magical walk by the illuminated Arc de Triomphe</div>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Day 1 Travel Tips</h4>
+                <p>Remember to stay hydrated, wear comfortable walking shoes, and don't forget to take photos of your first day in the City of Light! The nap is crucial for beating jet lag.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
